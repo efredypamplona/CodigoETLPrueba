@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  etl_script:
+    build: .
+    container_name: etl_covid
+    environment:
+      - SERVER=L
+      - DATABASE=BD_Covid19
+      - USERNAME=soporte
+      - PASSWORD=soporte
+    depends_on:
+      - sqlserver
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["python", "pruebaETLfinal.py"]
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sql_server
+    environment:
+      SA_PASSWORD: "YourStrong!Passw0rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    restart: always

@@ -1,0 +1,21 @@
+Guarda este archivo como docker-compose.yml en la misma carpeta donde está pruebaETLfinal.py.
+
+Crea un Dockerfile en la misma carpeta para definir el entorno de ejecución.
+
+Ejecuta docker-compose up para levantar el contenedor y ejecutar el script.
+
+docker-compose.yml:
+
+Crea dos servicios: uno para ejecutar el script y otro para SQL Server.
+
+Define variables de entorno para la conexión a la base de datos.
+
+Usa volumes para que el código se sincronice con el contenedor.
+
+//Dockerfile:
+
+Usa Python 3.9 como base.
+
+Instala las librerías necesarias (requests, pandas, pyodbc).
+
+Ejecuta pruebaETLfinal.py.
